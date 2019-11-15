@@ -1,0 +1,100 @@
+#include<stdio.h>
+
+ 
+void
+main () 
+ 
+{
+  
+ 
+int send[7], recive[7], i, a, b, c, d;
+  
+ 
+printf ("Four bit only\n");
+  
+ 
+scanf ("%d%d%d%d", &send[0], &send[1], &send[2], &send[4]);
+  
+ 
+send[6] = send[0] ^ send[2] ^ send[4];
+  
+ 
+send[5] = send[0] ^ send[1] ^ send[4];
+  
+ 
+send[3] = send[0] ^ send[1] ^ send[2];
+  
+ 
+ 
+ 
+printf ("\nthe encoded bits are given below: \n");
+  
+ 
+for (i = 0; i < 7; i++)
+    
+ 
+printf ("%d ", send[i]);
+  
+ 
+ 
+ 
+printf ("\nenter the recived send bits one by one: \n");
+  
+ 
+for (i = 0; i < 7; i++)
+    
+ 
+scanf ("%d", &recive[i]);
+  
+ 
+ 
+ 
+a = recive[6] ^ recive[4] ^ recive[2] ^ recive[0];
+  
+ 
+b = recive[5] ^ recive[4] ^ recive[1] ^ recive[0];
+  
+ 
+d = recive[3] ^ recive[2] ^ recive[1] ^ recive[0];
+  
+ 
+c = d * 4 + b * 2 + a;
+  
+ 
+ 
+ 
+if (c == 0)
+    
+ 
+printf ("\nNo error: \n");
+  
+ 
+  else
+    
+ 
+    {
+      
+ 
+printf ("\nErron found on postion: %d\n", c);
+      
+ 
+if (recive[7 - c] == 0)
+	
+ 
+recive[7 - c] = 1;
+      else
+	
+ 
+recive[7 - c] = 0;
+      
+ 
+for (i = 0; i < 7; i++)
+	
+ 
+printf ("%d ", recive[i]);
+    
+ 
+}
+
+ 
+}
