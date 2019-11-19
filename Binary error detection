@@ -75,7 +75,7 @@ printf ("\nNo error: \n");
     {
       
  
-printf ("\nErron found on postion: %d\n", c);
+printf ("\nError found on postion: %d\n", c);
       
  
 if (recive[7 - c] == 0)
